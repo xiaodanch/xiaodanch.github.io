@@ -1,0 +1,15 @@
+---
+title: 'Hello World'
+date: 2026-10-09
+permalink: /posts/2026/10/hello-world/
+tags:
+  - Notes
+  - Blog
+---
+
+Hello World
+======
+地球 online
+慢慢更新吧 :)
+
+------
