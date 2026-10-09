@@ -1,3 +1,17 @@
 <!-- start custom footer snippets -->
 <a href="/sitemap/">Sitemap</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("img[src]").forEach(function (img) {
+    const src = img.getAttribute("src");
+    if (src.startsWith("../images/posts/")) {
+      img.setAttribute(
+        "src",
+        src.replace("../images/posts/", "/images/posts/")
+      );
+    }
+  });
+});
+</script>
 <!-- end custom footer snippets -->
