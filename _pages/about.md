@@ -10,11 +10,7 @@ redirect_from:
 
 # Welcome
 
-Welcome to my personal academic website.
-
-My research interests include physical oceanography,
-numerical ocean modeling, high-resolution ocean simulations,
-and physics-informed artificial intelligence.
+Hello :)
 
 ## Explore
 

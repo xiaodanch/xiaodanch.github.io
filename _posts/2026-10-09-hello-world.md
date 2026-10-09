@@ -1,7 +1,7 @@
 ---
 title: 'Hello World'
 date: 2026-10-09
-permalink: /posts/2026/10/blog-post-1/
+permalink: /posts/2026/10/hello-world/
 tags:
   - Notes
   - Blog
