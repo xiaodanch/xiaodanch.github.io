@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Chen Xiaodan（￣︶￣）"
 title_separator          : "-"
 name                     : &name "Chen Xiaodan"
-description              : &description "personal description"
+description              : &description "Ocean Modeling and AI"
 url                      : https://xiaodanch.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "xiaodanch/xiaodanch.github.io"
@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
+  name             : "Chen Xiaodan"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "Physical Oceanography | Ocean Modeling | AI"
   location         : "Location"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "xiaodanch"
   google_plus      :
   keybase          :
   instagram        :
