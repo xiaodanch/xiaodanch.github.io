@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About"
+title: "Welcome"
 excerpt: "About me"
 author_profile: true
 redirect_from:
@@ -8,9 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-# Welcome
-
-Hello :)
+Hello :)  
+随缘手记
 
 ## Explore
 
