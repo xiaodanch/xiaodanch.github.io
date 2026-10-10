@@ -142,18 +142,44 @@
   scroll-margin-top: 85px;
 }
 
-/* 桌面端：右侧悬浮目录 */
-@media (min-width: 1280px) {
-  .article-toc {
-    position: fixed;
-    top: 105px;
-    right: max(12px, calc((100vw - 1280px) / 2 + 12px));
-    width: 180px;
-    max-height: calc(100vh - 125px);
-    z-index: 5;
+/* Blog layout: left TOC + wide content */
+
+@media (min-width: 1024px) {
+  #main.blog-layout {
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: start;
+  }
+
+  #main.blog-layout .blog-toc-sidebar {
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    min-width: 0;
+  }
+
+  #main.blog-layout .article-toc {
     margin: 0;
-    padding: 0.8rem 0.5rem;
     background: transparent;
     border: 0;
+    padding: 0.5rem;
+  }
+
+  #main.blog-layout > article.page {
+    width: 100%;
+    float: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+}
+
+/* Narrow screens: TOC above article */
+@media (max-width: 1023px) {
+  #main.blog-layout .blog-toc-sidebar {
+    margin-bottom: 1.5rem;
   }
 }

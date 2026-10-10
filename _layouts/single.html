@@ -14,8 +14,16 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+<div id="main" role="main" class="{% if page.collection == 'posts' %}blog-layout{% endif %}">
+  {% unless page.collection == 'posts' %}
+    {% include sidebar.html %}
+  {% endunless %}
+
+  {% if page.collection == 'posts' %}
+    <aside class="blog-toc-sidebar">
+      {% include article-toc.html %}
+    </aside>
+  {% endif %}
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -53,9 +61,6 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
-        {% if page.collection == "posts" %}
-          {% include article-toc.html %}
-        {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
