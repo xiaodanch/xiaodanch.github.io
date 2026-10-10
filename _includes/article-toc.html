@@ -1,0 +1,66 @@
+<nav id="article-toc" class="article-toc" aria-label="文章目录" hidden>
+  <div class="article-toc__heading">本页目录</div>
+  <div class="article-toc__links"></div>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toc = document.getElementById("article-toc");
+  const content = document.querySelector(".page__content");
+  if (!toc || !content) return;
+
+  const headings = Array.from(content.querySelectorAll("h2, h3"))
+    .filter(h => h.textContent.trim());
+
+  if (headings.length < 2) return;
+
+  const links = toc.querySelector(".article-toc__links");
+
+  headings.forEach((heading, index) => {
+    if (!heading.id) heading.id = "section-" + (index + 1);
+
+    const link = document.createElement("a");
+    link.href = "#" + encodeURIComponent(heading.id);
+    link.textContent = heading.textContent.trim();
+    link.className = "article-toc__link article-toc__link--" +
+                     heading.tagName.toLowerCase();
+
+    links.appendChild(link);
+  });
+
+  toc.hidden = false;
+
+  const anchors = Array.from(links.querySelectorAll("a"));
+
+  let pending = false;
+
+  function updateActive() {
+    let active = 0;
+
+    headings.forEach((heading, index) => {
+      if (heading.getBoundingClientRect().top <= 110) {
+        active = index;
+      }
+    });
+
+    anchors.forEach((link, index) => {
+      const current = index === active;
+      link.classList.toggle("is-active", current);
+
+      if (current) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+
+    pending = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!pending) {
+      pending = true;
+      window.requestAnimationFrame(updateActive);
+    }
+  }, { passive: true });
+
+  updateActive();
+});
+</script>

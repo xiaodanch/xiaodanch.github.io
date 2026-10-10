@@ -89,3 +89,71 @@
   background: #f8f8f8;
   border-radius: 3px;
 }
+
+/* Article Table of Contents */
+
+.article-toc {
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #eaecef;
+  border-radius: 5px;
+  background: #fafafa;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.article-toc[hidden] {
+  display: none;
+}
+
+.article-toc__heading {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.article-toc__links {
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.article-toc__link {
+  display: block;
+  padding: 0.25rem 0.45rem;
+  color: #667085;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  overflow-wrap: anywhere;
+}
+
+.article-toc__link--h3 {
+  padding-left: 1.1rem;
+  font-size: 12px;
+}
+
+.article-toc__link:hover,
+.article-toc__link.is-active {
+  color: #257a63;
+  border-left-color: #42b983;
+  text-decoration: none;
+}
+
+.page__content h2,
+.page__content h3 {
+  scroll-margin-top: 85px;
+}
+
+/* 桌面端：右侧悬浮目录 */
+@media (min-width: 1280px) {
+  .article-toc {
+    position: fixed;
+    top: 105px;
+    right: max(12px, calc((100vw - 1280px) / 2 + 12px));
+    width: 180px;
+    max-height: calc(100vh - 125px);
+    z-index: 5;
+    margin: 0;
+    padding: 0.8rem 0.5rem;
+    background: transparent;
+    border: 0;
+  }
+}
