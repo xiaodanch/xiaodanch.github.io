@@ -3,6 +3,7 @@ title: '海洋剖面预测SOTA'
 date: 2026-10-19
 permalink: /posts/2026/10/profile-prediction/
 typora-copy-images-to: ../images/posts
+description: "剖面/3D预测的精度指标、模型、训练策略"
 tags:
   - AI
   - ocea
