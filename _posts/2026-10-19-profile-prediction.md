@@ -6,8 +6,8 @@ typora-copy-images-to: ../images/posts
 description: "剖面/3D预测的精度指标、模型、训练策略"
 tags:
   - AI
-  - ocea
-  - profile predict）
+  - ocean
+  - profile predict
 ---
 
 ## 问海：涡旋分辨率全球海洋预报
@@ -60,7 +60,7 @@ Swin Transformer
 
  <img src="../images/posts/image-20261020112709777.png" alt="image-20261020112709777" style="zoom:50%;" />  
 
-  文中曾提到，采用更大的 Patch Size 虽然可以进一步降低输入数据的维度，但也可能使模型更难保留海洋中尺度变化特征。如图S15所示，patch size越大，涡动动能EKE衰减更明显。
+  文中曾提到，采用更大的 Patch Size 虽然可以进一步降低输入数据的维度，但也可能使模型更难保留海洋中尺度变化特征。如图S15所示，patch size越大，涡动动能EKE衰减更明显。  
 <img src="../images/posts/image-20261020113144168.png" alt="image-20261020113144168" style="zoom:50%;" />
 
 ### 训练策略
