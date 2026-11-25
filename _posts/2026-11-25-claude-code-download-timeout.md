@@ -13,7 +13,7 @@ tags:
 
 ## 问题
 
-用 Homebrew 安装 Claude Code：
+Homebrew 安装 Claude Code：
 
 ```bash
 brew install --cask claude-code
@@ -30,6 +30,18 @@ Download failed: https://downloads.claude.ai/claude-code-releases/2.1.325/darwin
 ```
 
 `downloads.claude.ai` 连不上，但包本身可以手动下载到。
+
+## 先检查：终端没走代理
+
+macOS 的系统代理不一定作用于终端，`curl` /网页可能还是直连。临时指定代理重试（不动全局）：
+
+```bash
+https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 brew install --cask claude-code
+```
+
+`7890` 是 Clash 的 HTTP 代理端口。
+
+若依旧超时，再用手动下载 + 缓存。
 
 ## 解决：把下载好的文件放进 Homebrew 缓存
 
