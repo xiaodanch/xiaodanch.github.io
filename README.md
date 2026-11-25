@@ -16,13 +16,31 @@ I think I've got things running smoothly and fixed some major bugs, but feel fre
 
 See more info at https://academicpages.github.io/
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+## Build and preview locally
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+Install Ruby 3.3 and Bundler, and make sure both commands are available on your PATH. From the repository root, check the versions and install the dependencies from the project's Gemfile.
+
+```sh
+ruby -v
+bundle -v
+bundle install
+```
+
+Start the local preview with a UTF-8 locale so Sass can read the site's stylesheets.
+
+```sh
+LC_ALL=en_US.UTF-8 bundle exec jekyll serve --config _config.yml,_config.dev.yml --host 127.0.0.1 --port 4000 --watch
+```
+
+Open [the local preview](http://127.0.0.1:4000/). Jekyll rebuilds the site when files change. Press Ctrl+C to stop the server.
+
+To generate the static site without starting a server, run:
+
+```sh
+LC_ALL=en_US.UTF-8 bundle exec jekyll build --config _config.yml,_config.dev.yml
+```
+
+The generated files are written to `_site/`.
 
 # Changelog -- bugfixes and enhancements
 

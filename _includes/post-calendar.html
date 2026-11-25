@@ -1,0 +1,22 @@
+{% assign post_months = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
+{% assign current_month = page.date | date: '%Y-%m' %}
+<section class="post-calendar" aria-label="博客日历" hidden>
+  <label>
+    博客日历
+    <select class="post-calendar__month" aria-label="选择月份">
+      {% for month in post_months %}
+        <option value="{{ month.name }}"{% if month.name == current_month %} selected{% endif %}>{{ month.name }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <div class="post-calendar__grid">
+    {% assign weekdays = "一,二,三,四,五,六,日" | split: "," %}
+    {% for weekday in weekdays %}<span aria-hidden="true">{{ weekday }}</span>{% endfor %}
+  </div>
+  <template>
+    {% for post in site.posts %}
+      <a href="{{ post.url | relative_url | escape }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">{{ post.title | markdownify | strip_html | strip | escape_once }}</a>
+    {% endfor %}
+  </template>
+</section>
+<script src="{{ '/assets/js/post-calendar.js' | relative_url }}" defer></script>

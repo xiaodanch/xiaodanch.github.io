@@ -144,6 +144,100 @@
 
 /* Blog layout: left TOC + wide content */
 
+#main.blog-layout > article.page {
+  display: flow-root;
+  width: 100%;
+  float: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+#main.blog-layout > .page__related {
+  float: none;
+  margin-top: 2rem;
+  margin-left: 0;
+  min-width: 0;
+}
+
+.blog-related-links {
+  margin-bottom: 0;
+  padding-left: 1.2em;
+  overflow-wrap: anywhere;
+}
+
+.blog-related-links a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.post-calendar {
+  max-width: 220px;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid $border-color;
+  font-size: 0.75rem;
+}
+
+.post-calendar label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.post-calendar select {
+  width: auto;
+  margin: 0;
+  font: inherit;
+}
+
+.post-calendar__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  text-align: center;
+}
+
+.post-calendar__grid > span,
+.post-calendar__active {
+  display: block;
+  padding: 0.2em 0;
+}
+
+.post-calendar__active {
+  background: #e2f2eb;
+  color: #20634f;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.post-calendar__active:hover,
+.post-calendar__active:focus-visible {
+  background: #c5e6d8;
+  color: #174a3c;
+}
+
+.post-calendar__active::-webkit-details-marker {
+  display: none;
+}
+
+.post-calendar__grid ul {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  margin: 0;
+  padding: 0.6em 0.6em 0.6em 1.8em;
+  background: $background-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
 @media (min-width: 1024px) {
   #main.blog-layout {
     max-width: 1500px;
@@ -153,7 +247,13 @@
     align-items: start;
   }
 
+  #main.blog-layout::after {
+    display: none;
+  }
+
   #main.blog-layout .blog-toc-sidebar {
+    grid-column: 1;
+    grid-row: 1;
     position: sticky;
     top: 90px;
     max-height: calc(100vh - 110px);
@@ -169,21 +269,18 @@
   }
 
   #main.blog-layout > article.page {
-    width: 100%;
-    float: none;
-    margin: 0;
-    padding: 0;
-    min-width: 0;
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  /* Related posts must sit in the content column, not the TOC column,
-     and must not inherit Susy float/offset rules. */
   #main.blog-layout > .page__related {
     grid-column: 2;
-    float: none;
-    width: 100%;
-    margin-left: 0;
-    min-width: 0;
+    grid-row: 2;
+  }
+
+  #main.blog-layout > .post-calendar {
+    grid-column: 1;
+    grid-row: 2;
   }
 }
 
