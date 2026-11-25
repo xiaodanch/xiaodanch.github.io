@@ -175,6 +175,16 @@
     padding: 0;
     min-width: 0;
   }
+
+  /* Related posts must sit in the content column, not the TOC column,
+     and must not inherit Susy float/offset rules. */
+  #main.blog-layout > .page__related {
+    grid-column: 2;
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    min-width: 0;
+  }
 }
 
 /* Narrow screens: TOC above article */
